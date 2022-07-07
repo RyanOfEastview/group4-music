@@ -1,35 +1,49 @@
-var apiKey = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+var tmApiKey = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 
 //Search Form variables
-var userFormEl = document.querySelector("#user-form");
+var artistFormEl = document.querySelector("#artist-form");
 var nameInputEl = document.querySelector("#artist");
+var searchContainerEl = document.querySelector("#search-container");
 //get value from input element
-var artist = nameInputEl.value.trim();
-
-if (artist) {
-    getDates(artist);
-    nameInputEl.value = "";
-}else{
-    alert("please enter an artist's name");
-}
-
 
 var formSubmit = function(event) {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
+    var artist = nameInputEl.value.trim();
 
+    if (artist) {
+        getDates(artist);
+
+       // clear old content
+        searchContainerEl.textContent = '';
+        nameInputEl.value = '';
+    }
+    // }else{
+    //     alert("please enter an artist's name");
+    // }
 };
 
-var getDates = function(attraction) {
+var getDates = function(artist) {
     // format URL to search by attraction/band - IN PROGRESS
-    var apiUrl = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0";
+    var apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=` + artist + `&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 
-    // make a request to the URL
-    fetch(apiUrl).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data);
-        });
-    });
+    // make a get request to url
+  fetch(apiUrl)
+  .then(function(response) {
+    // request was successful
+    if (response.ok) {
+      console.log(response);
+      response.json().then(function(data) {
+        console.log(data);
+        displayRepos(data, artist);
+      });
+    } else {
+      alert('Error: GitHub User Not Found');
+    }
+  })
+  .catch(function(error) {
+    alert('Unable to connect to GitHub');
+  });
 };
 
 // var getDates = function(artist) {
@@ -45,7 +59,7 @@ var getDates = function(attraction) {
 //     });
 // };
 
-userFormEl.addEventListener("submit", formSubmit);
+artistFormEl.addEventListener("submit", formSubmit);
 
 // getDates();
 
