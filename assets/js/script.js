@@ -35,14 +35,14 @@ var getDates = function(artist) {
       console.log(response);
       response.json().then(function(data) {
         console.log(data);
-        displayRepos(data, artist);
+        displayDates(data, artist);
       });
     } else {
-      alert('Error: GitHub User Not Found');
+      alert('Error: Artist Not Found');
     }
   })
   .catch(function(error) {
-    alert('Unable to connect to GitHub');
+    alert('Unable to connect.');
   });
 };
 
