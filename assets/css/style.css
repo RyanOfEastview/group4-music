@@ -1,18 +1,112 @@
-.results {
-    display: flex;
-    border: 3px solid black;
+:root {
+  --primary: #ffa630;
+  --secondary: #D7E8BA;
+  --tertiary: #4da1a9;
+  --light-dark: #2e5077;
+  --dark: #611c35;
+  --border-radius: .3rem;
+}
+
+* {
+  color: var(--dark);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+header {
+  font-family: "Bangers";
+  -webkit-text-stroke: .1px white;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 66px ;
+  background-color: var(--primary);
+  padding: 10px;
+}
+
+h2 {
+  font-family: "Indie Flower";
+}
+
+main {
+  
+}
+
+.hero {
+  padding: 3% 4%;
+  background-color: var(--dark);
+  color: var(--dark);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-header {
+  display: flex;
+  margin-right: 10px;
+  font-family: "Permanent Marker";
+}
+
+.form-input {
+  background-color: white
+  width: ;
+  padding: 6px 5px;
+  margin: 20px 5px;
+  font-size: 1.2rem;
+  border: 2px solid var(--dark);
+  border-radius: var(--border-radius);
+}
+
+.btn {
+  font-size: 1.3rem;
+  text-decoration:none;
+  padding: ;
+  width: ;
+  display: block;
+  margin: 20px 5px;
+  border-radius: var(--border-radius);
+  color: white;
+  border: none;
+  outline: none;
+  background-color: var(--light-dark);
+  box-shadow: 3px 3px var(--dark);
+  
+}
+
+.btn:hover {
+  color: var(--primary);
+  background-color: var(--dark);
+  transform: translate(0, 0);
+  box-shadow: 2px 2px var(--dark);
 }
 
 .list-group {
-    padding: 0;
-    list-style: none;
-  }
+  display: inline-grid;
+  padding: 0;
+  list-style: none;
+}
   
-  .list-item {
-    margin-bottom: 10px;
-    padding: 1.5%;
-    border-radius: var(--border-radius);
-    background-color: var(--light-dark);
-    color: var(--primary);
-    text-decoration: none;
-  }
+.list-item {
+  font-family: "Indie Flower";
+  color: white;
+  display: inline;
+  margin: 1px;
+  padding: 5px;
+  border-radius: var(--border-radius);
+  background-color: var(--dark);
+  text-decoration: none;
+}
+
+
+

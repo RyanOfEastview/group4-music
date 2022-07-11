@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Document</title>
 </head>
+<header class="hero">
+    <h1>GROUP4 - Live Music Finder</h1>
+</header>
 <body>
     <main>
         <div>
             <div id="search-container" class="card">
-                <h3 class="card-header">Search by Artist</h3>
+                <h2 class="card-header">Search by Artist</h2>
                 <form id="artist-form" class="card-body">
-                    <label class="form-label" for="artist">Artist Name</label>
+                    <label class="form-label" for="artist"></label>
                     <input name="artist" id="artist" type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn">Find Shows</button>
                 </form>
+                
             </div>
         </div>
 
-        <div class="col-12 col-md-8">
+        <div>
             <h2 class="subtitle">Showing Dates for: <span id="artist-search-term"></span></h2>
             <div id="dates-container" class="list-group">
             <!-- Dates should be displayed in list order here -->
@@ -32,6 +38,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/single.js"></script>
+    <!-- <script src="./assets/js/single.js"></script> -->
 </body>
 </html>
