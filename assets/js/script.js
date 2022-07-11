@@ -1,4 +1,7 @@
 var tmApiKey = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+//spotify  client ID
+var clientId = '75f1b5b5be744a36bdea07d4bd677517';
+var clientSecret = '61d4ffbf8c3a4dc3b0aa0717a104e292';
 
 //Search Form variables
 var artistFormEl = document.querySelector("#artist-form");
@@ -53,6 +56,48 @@ var displayDates = function(dates, searchTerm) {
 
   var numOfevents = dates.page.totalElements;
 
+
+
+  // spotify- retrieve token -> target search endpoint -> parse external artist link
+var getArtist = async () => {
+  await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
+      },
+      body: 'grant_type=client_credentials'
+  }).then(function (response) {
+      response.json().then(async function (data) {
+          console.log(data);
+          access_token = data.access_token;
+          console.log(access_token);
+          var name = await axios.get("https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist", { headers: { Authorization: `Bearer ${access_token}` , 'Content-Type': 'application/json'} })
+          
+          
+// embed external link into IFrame
+          console.log(name);
+       var myJSON = JSON.stringify(name);
+       var art = JSON.parse(myJSON);
+       console.log(art.data.artists.items[0].external_urls.spotify);
+       let url = JSON.stringify( art.data.artists.items[0].external_urls.spotify);
+       document.getElementById('spotify').innerHTML = url;
+       document.getElementById('spotify').src = 'https://open.spotify.com/embed/artist/' + art.data.artists.items[0].id +   '?utm_source=generator' 
+
+      })
+
+  }
+  
+  
+  
+  
+  );
+
+
+}
+
+getArtist();
+
   //check if api returned any tour dates
    if(numOfevents === 0){
       //  We can direct them to live videos or second API here
@@ -94,7 +139,6 @@ var displayDates = function(dates, searchTerm) {
       linkEl.rel = "noopener noreferrer";
       datesContainerEl.appendChild(linkEl);
       datesContainerEl.appendChild(newLine);
-
     }
   }
 };
