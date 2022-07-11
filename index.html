@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
     <title>Document</title>
 </head>
 <body>
     <main>
         <div>
-            <div class="card">
+            <div id="search-container" class="card">
                 <h3 class="card-header">Search by Artist</h3>
-                <form id="user-form" class="card-body">
+                <form id="artist-form" class="card-body">
                     <label class="form-label" for="artist">Artist Name</label>
                     <input name="artist" id="artist" type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn">Find Shows</button>
                 </form>
             </div>
+            <ul class="col-8 mb-3"></ul>   
         </div>
 
-        <div class="col-12 col-md-8"></div>
+        <div class="col-12 col-md-8">
+            <h2 class="subtitle">Showing Dates for: <span id="artist-search-term"></span></h2>
+            <div id="dates-container" class="list-group">
+            <!-- Dates should be displayed in list order here -->
+            </div>
+          </div>
     </main>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <!-- <script src="./assets/js/single.js"></script> -->
 </body>
 </html>
