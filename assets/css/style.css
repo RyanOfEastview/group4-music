@@ -13,6 +13,8 @@
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   background-color: var(--primary);
 }
 
@@ -46,6 +48,7 @@ h2 {
 .card {
   display: flex;
   justify-content: center;
+  border-bottom: var(--dark) 1px;
 }
 
 .card-body {
@@ -67,6 +70,8 @@ h2 {
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
 }
+
+
 
 .btn {
   font-size: 1.3rem;
@@ -109,7 +114,7 @@ h2 {
 }
 
 footer {
-  position:absolute;
+  position:relative;
   bottom: 10px;
   background-color: var(--dark);
   padding: 40px 35px;
