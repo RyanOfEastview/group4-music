@@ -109,7 +109,7 @@ h2 {
 }
 
 footer {
-  position:absolute;
+  position:relative;
   bottom: 10px;
   background-color: var(--dark);
   padding: 40px 35px;
