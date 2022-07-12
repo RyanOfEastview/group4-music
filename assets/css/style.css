@@ -19,11 +19,18 @@ body {
 }
 
 header {
+  
   font-family: "Bangers";
-  -webkit-text-stroke: .1px white;
+  
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  
+}
+
+header a {
+  text-decoration: none;
+  -webkit-text-stroke: .1px white;
 }
 
 h1 {
