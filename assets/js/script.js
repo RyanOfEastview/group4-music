@@ -50,8 +50,8 @@ var getDates = function(artist) {
     alert('Unable to connect.');
   });
 };
-
 var displayDates = function(dates, searchTerm) {
+  
   artistSearchTerm.textContent = searchTerm;
 
   var numOfevents = dates.page.totalElements;

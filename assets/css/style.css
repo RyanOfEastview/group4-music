@@ -46,6 +46,11 @@ h2 {
   display: flex;
 }
 
+.single-banner {
+  display: flex;
+  justify-content: space-between;
+}
+
 .spotify {
   align-items: center;
   width: 60%;
@@ -88,7 +93,6 @@ h2 {
   font-size: 1.3rem;
   text-decoration:none;
   padding: ;
-  width: ;
   display: block;
   margin: 20px 5px;
   border-radius: var(--border-radius);
@@ -101,6 +105,27 @@ h2 {
 }
 
 .btn:hover {
+  color: var(--primary);
+  background-color: var(--dark);
+  transform: translate(0, 0);
+  box-shadow: 2px 2px var(--dark);
+}
+
+.back-btn {
+  font-size: 1.3rem;
+  text-decoration:none;
+  padding: ;
+  display: block;
+  margin: 20px 5px;
+  border-radius: var(--border-radius);
+  color: white;
+  border: none;
+  outline: none;
+  background-color: var(--light-dark);
+  box-shadow: 3px 3px var(--dark);  
+}
+
+.back-btn:hover {
   color: var(--primary);
   background-color: var(--dark);
   transform: translate(0, 0);
