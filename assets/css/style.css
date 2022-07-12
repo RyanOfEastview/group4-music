@@ -39,6 +39,19 @@ h2 {
   font-family: "Indie Flower";
 }
 
+.banner {
+  align-items: center;
+}
+.content-container {
+  display: flex;
+}
+
+.spotify {
+  align-items: center;
+  width: 60%;
+  
+}
+
 .hero {
   padding: 3% 4%;
   background-color: var(--dark);
@@ -70,8 +83,6 @@ h2 {
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
 }
-
-
 
 .btn {
   font-size: 1.3rem;

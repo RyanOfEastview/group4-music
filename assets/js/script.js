@@ -85,6 +85,19 @@ var getArtist = async () => {
   });
 }
 
+//create a link element to take users to the youtube link of the search term
+var ytEl = document.createElement("a");
+var newLine = document.createElement("br");
+//new
+var ytLink = document.createTextNode(searchTerm);
+ytEl.appendChild(ytLink);
+ytEl.title = "Youtube Link";
+ytEl.href = "https://www.youtube.com/results?search_query=" + searchTerm;
+//set for opening a new tab for the link
+ytEl.target = "_blank";
+ytEl.rel = "noopener noreferrer";
+datesContainerEl.appendChild(ytEl);
+datesContainerEl.appendChild(newLine);
 getArtist();
 
   //check if api returned any tour dates
