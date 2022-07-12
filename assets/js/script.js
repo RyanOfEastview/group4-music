@@ -1,3 +1,9 @@
+$('.btn').click(function() {
+  $('.subtitle, .youTube-link, .back-btn').css({
+      'display': 'block'
+  });
+});
+
 var tmApiKey = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 //spotify  client ID
 var clientId = '75f1b5b5be744a36bdea07d4bd677517';
