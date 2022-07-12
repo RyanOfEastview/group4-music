@@ -23,6 +23,7 @@ header {
   -webkit-text-stroke: .1px white;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -32,6 +33,7 @@ h1 {
 }
 
 main {
+  flex-wrap: wrap;
   padding-bottom: 2.5rem;
 }
 
@@ -178,4 +180,42 @@ h4 {
   font-family: "Indie Flower";
   color: white;
   margin: 0;
+}
+
+@media screen and (max-width: 850px) {
+  header {
+    padding-bottom: 0;
+    justify-content: center;
+  }
+
+  main {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  banner {
+    flex-wrap: wrap;
+  }
+
+  h1, h2, form, button {
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dates-container {
+    width: 100%;
+    flex: 0 70%;
+  }
+
+  .spotify {
+    display: inline;
+    width: 100%;
+    flex: 0 70%;
+  }
+
+  .btn {
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
