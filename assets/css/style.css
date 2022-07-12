@@ -49,9 +49,11 @@ h4 {
   display: flex;
   justify-content: space-between;
 }
+
 .content-container {
   display: flex;
-}
+  width: 100%;
+  }
 
 .youTube-link {
   font-weight: bold;
@@ -94,7 +96,6 @@ h4 {
 
 .form-input {
   background-color: white
-  /* width: ; */
   padding: 6px 5px;
   margin: 20px 5px;
   font-size: 1.2rem;
@@ -105,7 +106,6 @@ h4 {
 .btn {
   font-size: 1.3rem;
   text-decoration:none;
-  padding: ;
   display: block;
   margin: 20px 5px;
   border-radius: var(--border-radius);
@@ -153,6 +153,7 @@ h4 {
   display: inline-grid;
   padding: 0;
   list-style: none;
+  width: 100%;
 }
   
 .list-item {
@@ -164,6 +165,7 @@ h4 {
   border-radius: var(--border-radius);
   background-color: var(--dark);
   text-decoration: none;
+  width: 100%;
 }
 
 footer {
