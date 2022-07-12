@@ -26,6 +26,7 @@ var formSubmit = function(event) {
   var artist = nameInputEl.value.trim();
 
   if (artist) {
+    localStorage.setItem("Search history", artist);
     getDates(artist);
 
     // clear old content
@@ -43,20 +44,21 @@ var getDates = function(artist) {
     //  request was successful
     if (response.ok) {
        console.log(response);
-      response.json().then(function(data) {
+       response.json().then(function(data) {
     //  pass response data to DOM
         console.log(data);
 
         displayDates(data,artist);
       });
     } else {
-      alert('Error: Artist Not Found');
+        alert('Error: Artist Not Found');
     }
   })
   .catch(function(error) {
     alert('Unable to connect.');
   });
 };
+
 var displayDates = function(dates, searchTerm) {
   
   artistSearchTerm.textContent = searchTerm;
@@ -115,41 +117,33 @@ getArtist();
       "font-size: 24px;  font-weight: bold; margin-right: 45px;");
       // return;
     }else{
-    
-    for(var i = 0; i < 2; i++){
-      var tmEvents = dates._embedded.events[i];
-      // console.log(tmEvents);
-      // console.log(tmEvents.name);
-      // console.log(tmEvents.dates.start.localDate);
-      // console.log(tmEvents.dates.start.localTime)
-    }
 
-    // loop through tour dates
-    for (var i = 0; i < numOfevents; i++) {
-      var tmEvents = dates._embedded.events[i];
-    
-      // format date name that is displayed on screen
-      var date = tmEvents.name + " - " + tmEvents.dates.start.localDate +
-        " - " + tmEvents.dates.start.localTime + " - " + tmEvents._embedded.venues[0].name + " - " + tmEvents._embedded.venues[0].city.name + " - " + tmEvents._embedded.venues[0].country.countryCode;
-      console.log(date);
+      // loop through tour dates
+      for (var i = 0; i < numOfevents; i++) {
+        var tmEvents = dates._embedded.events[i];
+      
+        // format date name that is displayed on screen
+        var date = tmEvents.name + " - " + tmEvents.dates.start.localDate +
+          " - " + tmEvents.dates.start.localTime + " - " + tmEvents._embedded.venues[0].name + " - " + tmEvents._embedded.venues[0].city.name + " - " + tmEvents._embedded.venues[0].country.countryCode;
+        console.log(date);
 
-      //create a link element to take users to a link to buy tickets for chosen date
-      var linkEl = document.createElement("a");
-      linkEl.classList = "list-item flex-row justify-space-between align-center";
-      
-      var newLine = document.createElement("br");
-      console.log(tmEvents.url);
-      
-      var ticketLink = document.createTextNode("" + date);
-      linkEl.appendChild(ticketLink);
-      linkEl.title = "";
-      linkEl.href = tmEvents.url;
-      
-      //set for opening a new tab for the link
-      linkEl.target = "_blank";
-      linkEl.rel = "noopener noreferrer";
-      datesContainerEl.appendChild(linkEl);
-      datesContainerEl.appendChild(newLine);
+        //create a link element to take users to a link to buy tickets for chosen date
+        var linkEl = document.createElement("a");
+        linkEl.classList = "list-item flex-row justify-space-between align-center";
+        
+        var newLine = document.createElement("br");
+        console.log(tmEvents.url);
+        
+        var ticketLink = document.createTextNode("" + date);
+        linkEl.appendChild(ticketLink);
+        linkEl.title = "";
+        linkEl.href = tmEvents.url;
+        
+        //set for opening a new tab for the link
+        linkEl.target = "_blank";
+        linkEl.rel = "noopener noreferrer";
+        datesContainerEl.appendChild(linkEl);
+        datesContainerEl.appendChild(newLine);
     }
   }
 };
