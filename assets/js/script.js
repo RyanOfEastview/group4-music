@@ -55,6 +55,19 @@ var getDates = function(artist) {
 var displayDates = function(dates, searchTerm) {
     artistSearchTerm.textContent = searchTerm;
 
+    //create a link element to take users to a link to buy tickets for chosen date
+    var ytEl = document.createElement("a");
+    var newLine = document.createElement("br");
+    //new
+    var ytLink = document.createTextNode(searchTerm);
+    ytEl.appendChild(ytLink);
+    ytEl.title = "Youtube Link";
+    ytEl.href = "https://www.youtube.com/results?search_query=" + searchTerm;
+    //set for opening a new tab for the link
+    ytEl.target = "_blank";
+    ytEl.rel = "noopener noreferrer";
+    datesContainerEl.appendChild(ytEl);
+    datesContainerEl.appendChild(newLine);    
     var numOfevents = dates.page.totalElements;
 
     //check if api returned any tour dates
