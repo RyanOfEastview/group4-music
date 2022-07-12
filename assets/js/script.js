@@ -110,7 +110,9 @@ getArtist();
   //check if api returned any tour dates
    if(numOfevents === 0){
       //  We can direct them to live videos or second API here
-      youTubeContainerEl.textContent = 'No tour dates found.';
+      datesContainerEl.textContent = 'No tour dates found.';
+      datesContainerEl.setAttribute("style", "font-family: 'Indie Flower';" + 
+      "font-size: 24px;  font-weight: bold; margin-right: 45px;");
       // return;
     }else{
     
