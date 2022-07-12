@@ -56,44 +56,33 @@ var displayDates = function(dates, searchTerm) {
 
   var numOfevents = dates.page.totalElements;
 
-
-
   // spotify- retrieve token -> target search endpoint -> parse external artist link
 var getArtist = async () => {
   await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
-      },
-      body: 'grant_type=client_credentials'
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
+    },
+    body: 'grant_type=client_credentials'
   }).then(function (response) {
-      response.json().then(async function (data) {
-          console.log(data);
-          access_token = data.access_token;
-          console.log(access_token);
-          var name = await axios.get("https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist", { headers: { Authorization: `Bearer ${access_token}` , 'Content-Type': 'application/json'} })
-          
-          
-// embed external link into IFrame
-          console.log(name);
-       var myJSON = JSON.stringify(name);
-       var art = JSON.parse(myJSON);
-       console.log(art.data.artists.items[0].external_urls.spotify);
-       let url = JSON.stringify( art.data.artists.items[0].external_urls.spotify);
-       document.getElementById('spotify').innerHTML = url;
-       document.getElementById('spotify').src = 'https://open.spotify.com/embed/artist/' + art.data.artists.items[0].id +   '?utm_source=generator' 
+    response.json().then(async function (data) {
+    console.log(data);
+    access_token = data.access_token;
+    console.log(access_token);
+    var name = await axios.get("https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist", { headers: { Authorization: `Bearer ${access_token}` , 'Content-Type': 'application/json'} })
 
-      })
+    // embed external link into IFrame
+    console.log(name);
+    var myJSON = JSON.stringify(name);
+    var art = JSON.parse(myJSON);
+    console.log(art.data.artists.items[0].external_urls.spotify);
+    let url = JSON.stringify( art.data.artists.items[0].external_urls.spotify);
+    document.getElementById('spotify').innerHTML = url;
+    document.getElementById('spotify').src = 'https://open.spotify.com/embed/artist/' + art.data.artists.items[0].id +   '?utm_source=generator' 
 
-  }
-  
-  
-  
-  
-  );
-
-
+  })
+  });
 }
 
 getArtist();
