@@ -40,12 +40,19 @@ h2 {
 }
 
 .banner {
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .content-container {
   display: flex;
 }
 
+.youTube-link {
+  font-weight: bold;
+  margin-top: auto;
+  font-family: "Indie Flower";
+  font-size: 24px;
+}
 .single-banner {
   display: flex;
   justify-content: space-between;

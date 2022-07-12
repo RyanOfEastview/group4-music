@@ -11,6 +11,7 @@ var artistSearchTerm = document.querySelector("#artist-search-term");
 
 //display variable
 var datesContainerEl = document.querySelector("#dates-container");
+var youTubeContainerEl = document.querySelector("#youTube-container");
 
 //get value from input element
 var formSubmit = function(event) {
@@ -91,19 +92,19 @@ var newLine = document.createElement("br");
 //new
 var ytLink = document.createTextNode(searchTerm);
 ytEl.appendChild(ytLink);
-ytEl.title = "Youtube Link";
+ytEl.title = "YouTube Link";
 ytEl.href = "https://www.youtube.com/results?search_query=" + searchTerm;
 //set for opening a new tab for the link
 ytEl.target = "_blank";
 ytEl.rel = "noopener noreferrer";
-datesContainerEl.appendChild(ytEl);
-datesContainerEl.appendChild(newLine);
+youTubeContainerEl.appendChild(ytEl);
+youTubeContainerEl.appendChild(newLine);
 getArtist();
 
   //check if api returned any tour dates
    if(numOfevents === 0){
       //  We can direct them to live videos or second API here
-      datesContainerEl.textContent = 'No tour dates found.';
+      youTubeContainerEl.textContent = 'No tour dates found.';
       // return;
     }else{
     
