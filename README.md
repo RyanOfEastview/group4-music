@@ -23,7 +23,7 @@ Screenshots:
 Desktop size: 	      
 ![Gp4MusicPreviewDesktop1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewDesktop1.jpg "Gp4MusicPreviewDesktop1")           
 
-After find shows button being clicked:     
+After inserting an artist name and find shows button being clicked:     
 If no upcoming tour dates     
 ![Gp4MusicPreviewDesktop2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewDesktop2.jpg "Gp4MusicPreviewDesktop2")            
 Otherwise            
@@ -32,7 +32,7 @@ Otherwise
 Tablet size: 	      
 ![Gp4MusicPreviewTablet1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet1.jpg "Gp4MusicPreviewTablet1")           
 
-After find shows button being clicked:     
+After inserting an artist name and find shows button being clicked:     
 If no upcoming tour dates     
 ![Gp4MusicPreviewTablet2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet2.jpg "Gp4MusicPreviewTablet2")            
 Otherwise            
@@ -41,7 +41,7 @@ Otherwise
 Desktop size: 	      
 ![Gp4MusicPreviewMobile1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewMobile1.jpg "Gp4MusicPreviewMobile1")           
 
-After find shows button being clicked:     
+After inserting an artist name and find shows button being clicked:     
 If no upcoming tour dates     
 ![Gp4MusicPreviewMobile2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet2.jpg "Gp4MusicPreviewMobile2")            
 Otherwise            
