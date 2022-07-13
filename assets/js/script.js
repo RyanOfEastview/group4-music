@@ -1,9 +1,3 @@
-$('.btn').click(function() {
-  $('.subtitle, .youTube-link, .back-btn').css({
-      'display': 'block'
-  });
-});
-
 var tmApiKey = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 //spotify  client ID
 var clientId = '75f1b5b5be744a36bdea07d4bd677517';
@@ -31,6 +25,11 @@ var formSubmit = function(event) {
 
     //get Results
     getDates(artist);
+
+    //Show hidden results (subtitle, youtube link, back-btn)
+    $('.subtitle, .youTube-link, .back-btn').css({
+        'display': 'block'
+    });
 
     // clear old content
     searchContainerEl.textContent = "";
