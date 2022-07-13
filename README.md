@@ -12,8 +12,11 @@ On the index page, there is a input field that you can put in an artist name and
 After clicking on the Find shows button, you will see the search results.  
 It shows the upcoming events as clickable links so you can purchase a ticket through Ticketmaster.com. 
 Youtube link of the artist will be provided. Next to the tour dates, a Spotify section will shown up to provide 
-a suggested collection of music snippets by the artist. 	  
+a suggested collection of music snippets by the artist. 
 
+Technologies used:     
+Server-side API: Ticketmaster API, Spotify API, Youtube API(ended up not using), HTML, CSS, Javascript     
+     
 Below are the links to the deployed application and this repository. Screenshots are shown after the links.
 
 Deployed application: https://ryanofeastview.github.io/group4-music/      
