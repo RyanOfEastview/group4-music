@@ -20,14 +20,30 @@ Deployed application: https://ryanofeastview.github.io/group4-music/
 Github repository: https://github.com/RyanOfEastview/group4-music	  
 
 Screenshots:     
-index page: 	      
-![Group4-Music Preview 1](website of screenshot "Group4-Music Preview 1")           
+Desktop size: 	      
+![Gp4MusicPreviewDesktop1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewDesktop1.jpg "Gp4MusicPreviewDesktop1")           
 
-dates page:     
+After find shows button being clicked:     
 If no upcoming tour dates     
-![Group4-Music Preview 2](website of screenshot "Group4-Music Preview 2")                
-![Group4-Music Preview 3](website of screenshot "Group4-Music Preview 3")          
+![Gp4MusicPreviewDesktop2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewDesktop2.jpg "Gp4MusicPreviewDesktop2")            
+Otherwise            
+![Gp4MusicPreviewDesktop3](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewDesktop3.jpg "Gp4MusicPreviewDesktop3")          
 
-Otherwise	    
-![Group4-Music Preview 4](website of screenshot "Group4-Music Preview 4")      
-![Group4-Music Preview 5](website of screenshot "Group4-Music Preview 5")      
+Tablet size: 	      
+![Gp4MusicPreviewTablet1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet1.jpg "Gp4MusicPreviewTablet1")           
+
+After find shows button being clicked:     
+If no upcoming tour dates     
+![Gp4MusicPreviewTablet2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet2.jpg "Gp4MusicPreviewTablet2")            
+Otherwise            
+![Gp4MusicPreviewTablet3](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet3.jpg "Gp4MusicPreviewTablet3")          
+
+Desktop size: 	      
+![Gp4MusicPreviewMobile1](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewMobile1.jpg "Gp4MusicPreviewMobile1")           
+
+After find shows button being clicked:     
+If no upcoming tour dates     
+![Gp4MusicPreviewMobile2](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet2.jpg "Gp4MusicPreviewMobile2")            
+Otherwise            
+![Gp4MusicPreviewMobile3](https://github.com/RyanOfEastview/group4-music/blob/main/screenshots/Gp4MusicPreviewTablet3.jpg "Gp4MusicPreviewMobile3")          
+
