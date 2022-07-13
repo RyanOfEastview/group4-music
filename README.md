@@ -1,6 +1,6 @@
 # GROUP4 - Live Music Finder	
 
-We are Group4, including Hiu Sum Jaime Yue, Spencer Cole, Ryan McCarthy.		          
+We are Group4, consists of Hiu Sum Jaime Yue, Spencer Cole, Ryan McCarthy.		          
 This is GROUP4 - Live Music Finder, a music web application that allows
  user to search by inputting an artist name to get their upcoming events and music snippets of the artist through 
 the embedded Spotify.    	
