@@ -54,11 +54,11 @@ var getDates = function (artist) {
         displayDates(data, artist);
       });
     } else {
-      alert('Error: Artist Not Found');
+      console.log('Error: Artist Not Found');
     }
   })
     .catch(function (error) {
-      alert('Unable to connect.');
+      console.log('Unable to connect.');
     });
 };
 
