@@ -5,7 +5,7 @@ This is GROUP4 - Live Music Finder, a music web application that allows
  user to search by inputting an artist name to get their upcoming events and music snippets of the artist through 
 the embedded Spotify.    	
 
-In GROUP4 - Live Music Finder, there is the index page and after you inserted an artist name and click the Find shows button, you can see the search results.           
+In GROUP4 - Live Music Finder, there is the index page and after you inserted an artist name and clicked the Find shows button, you can see the search results.           
           
 On the index page, there is a input field that you can put in an artist name and click on the Find show button.          
           
