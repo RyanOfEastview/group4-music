@@ -74,6 +74,7 @@ h4 {
   font-family: "Indie Flower";
   font-size: 24px;
 }
+
 .single-banner {
   display: flex;
   justify-content: space-between;
@@ -201,6 +202,7 @@ footer a {
   justify-content: space-between;
 }
 
+/*MEDIA QUERY for Desktop*/
 @media screen and (max-width: 850px) {
   header {
     padding-bottom: 0;
@@ -272,12 +274,14 @@ footer a {
   }
 }
 
+/*MEDIA QUERY for Tablet*/
 @media screen and (max-width: 742px) {
   header h1 {
     font-size: 49px;
   }
 }
 
+/*MEDIA QUERY for Mobile*/
 @media screen and (max-width: 490px) {
   header h1 {
     font-size: 33px;

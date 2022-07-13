@@ -26,7 +26,10 @@ var formSubmit = function(event) {
   var artist = nameInputEl.value.trim();
 
   if (artist) {
+    //Add artist(search term) to localStorage
     localStorage.setItem("Search history", artist);
+
+    //get Results
     getDates(artist);
 
     // clear old content
@@ -36,19 +39,20 @@ var formSubmit = function(event) {
 };
 
 var getDates = function(artist) {
-    // format URL to search by attraction/band 
-    var apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=` + artist + `&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+  // format URL to search by attraction/band 
+  var apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=` + artist + `&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
 
-    // make a get request to url
+  // make a get request to url
   fetch(apiUrl).then(function(response) {
     //  request was successful
     if (response.ok) {
-       console.log(response);
-       response.json().then(function(data) {
-    //  pass response data to DOM
+      console.log(response);
+      response.json().then(function(data) {
+      //pass response data to DOM
         console.log(data);
 
-        displayDates(data,artist);
+        //display Dates
+        displayDates(data, artist);
       });
     } else {
         alert('Error: Artist Not Found');
@@ -66,84 +70,82 @@ var displayDates = function(dates, searchTerm) {
   var numOfevents = dates.page.totalElements;
 
   // spotify- retrieve token -> target search endpoint -> parse external artist link
-var getArtist = async () => {
-  await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
-    },
-    body: 'grant_type=client_credentials'
-  }).then(function (response) {
-    response.json().then(async function (data) {
-    console.log(data);
-    access_token = data.access_token;
-    console.log(access_token);
-    var name = await axios.get("https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist", { headers: { Authorization: `Bearer ${access_token}` , 'Content-Type': 'application/json'} })
+  var getArtist = async () => {
+    await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
+      },
+      body: 'grant_type=client_credentials'
+    }).then(function (response) {
+      response.json().then(async function (data) {
+      console.log(data);
+      access_token = data.access_token;
+      console.log(access_token);
+      var name = await axios.get("https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist", { headers: { Authorization: `Bearer ${access_token}` , 'Content-Type': 'application/json'} })
 
-    // embed external link into IFrame
-    console.log(name);
-    var myJSON = JSON.stringify(name);
-    var art = JSON.parse(myJSON);
-    console.log(art.data.artists.items[0].external_urls.spotify);
-    let url = JSON.stringify( art.data.artists.items[0].external_urls.spotify);
-    document.getElementById('spotify').innerHTML = url;
-    document.getElementById('spotify').src = 'https://open.spotify.com/embed/artist/' + art.data.artists.items[0].id +   '?utm_source=generator' 
+      // embed external link into IFrame
+      console.log(name);
+      var myJSON = JSON.stringify(name);
+      var art = JSON.parse(myJSON);
+      console.log(art.data.artists.items[0].external_urls.spotify);
+      let url = JSON.stringify( art.data.artists.items[0].external_urls.spotify);
+      document.getElementById('spotify').innerHTML = url;
+      document.getElementById('spotify').src = 'https://open.spotify.com/embed/artist/' + art.data.artists.items[0].id +   '?utm_source=generator' 
 
-  })
-  });
-}
+    })
+    });
+  }
 
-//create a link element to take users to the youtube link of the search term
-var ytEl = document.createElement("a");
-var newLine = document.createElement("br");
-//new
-var ytLink = document.createTextNode(searchTerm);
-ytEl.appendChild(ytLink);
-ytEl.title = "YouTube Link";
-ytEl.href = "https://www.youtube.com/results?search_query=" + searchTerm;
-//set for opening a new tab for the link
-ytEl.target = "_blank";
-ytEl.rel = "noopener noreferrer";
-youTubeContainerEl.appendChild(ytEl);
-youTubeContainerEl.appendChild(newLine);
-getArtist();
+  //create a link element to take users to the youtube link of the search term
+  var ytEl = document.createElement("a");
+  var newLine = document.createElement("br");
+  var ytLink = document.createTextNode(searchTerm);
+  ytEl.appendChild(ytLink);
+  ytEl.title = "YouTube Link";
+  ytEl.href = "https://www.youtube.com/results?search_query=" + searchTerm;
+  //set for opening a new tab for the link
+  ytEl.target = "_blank";
+  ytEl.rel = "noopener noreferrer";
+  youTubeContainerEl.appendChild(ytEl);
+  youTubeContainerEl.appendChild(newLine);
+  getArtist();
 
   //check if api returned any tour dates
-   if(numOfevents === 0){
-      //  We can direct them to live videos or second API here
-      datesContainerEl.textContent = 'No tour dates found.';
-      datesContainerEl.setAttribute("style", "font-family: 'Indie Flower';" + 
-      "font-size: 24px;  font-weight: bold; margin-right: 45px;");
-      // return;
-    }else{
+  if(numOfevents === 0){  //no tours
+    datesContainerEl.textContent = 'No tour dates found.';
+    datesContainerEl.setAttribute("style", "font-family: 'Indie Flower';" + 
+    "font-size: 24px;  font-weight: bold; margin-right: 45px;");
+  }else{
 
-      // loop through tour dates
-      for (var i = 0; i < numOfevents; i++) {
-        var tmEvents = dates._embedded.events[i];
+    // loop through tour dates
+    for (var i = 0; i < numOfevents; i++) {
+      var tmEvents = dates._embedded.events[i];
       
-        // format date name that is displayed on screen
-        var date = tmEvents.name + " - " + tmEvents.dates.start.localDate +
-          " - " + tmEvents.dates.start.localTime + " - " + tmEvents._embedded.venues[0].name + " - " + tmEvents._embedded.venues[0].city.name + " - " + tmEvents._embedded.venues[0].country.countryCode;
-        console.log(date);
+      // format date name that is displayed on screen
+      var date = tmEvents.name + " - " + tmEvents.dates.start.localDate +
+        " - " + tmEvents.dates.start.localTime +
+         " - " + tmEvents._embedded.venues[0].name + " - " +
+          tmEvents._embedded.venues[0].city.name + " - " +
+           tmEvents._embedded.venues[0].country.countryCode;
 
-        //create a link element to take users to a link to buy tickets for chosen date
-        var linkEl = document.createElement("a");
-        linkEl.classList = "list-item flex-row justify-space-between align-center";
+      //create a link element to take users to a link to buy tickets for chosen date
+      var linkEl = document.createElement("a");
+      linkEl.classList = "list-item flex-row justify-space-between align-center";
         
-        var newLine = document.createElement("br");
-        console.log(tmEvents.url);
+      var newLine = document.createElement("br");
         
-        var ticketLink = document.createTextNode("" + date);
-        linkEl.appendChild(ticketLink);
-        linkEl.title = "";
-        linkEl.href = tmEvents.url;
+      var ticketLink = document.createTextNode("" + date);
+      linkEl.appendChild(ticketLink);
+      linkEl.title = "";
+      linkEl.href = tmEvents.url;
         
-        //set for opening a new tab for the link
-        linkEl.target = "_blank";
-        linkEl.rel = "noopener noreferrer";
-        datesContainerEl.appendChild(linkEl);
-        datesContainerEl.appendChild(newLine);
+      //set for opening a new tab for the link
+      linkEl.target = "_blank";
+      linkEl.rel = "noopener noreferrer";
+      datesContainerEl.appendChild(linkEl);
+      datesContainerEl.appendChild(newLine);
     }
   }
 };
