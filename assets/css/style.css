@@ -27,7 +27,6 @@ header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 header a {
@@ -36,7 +35,7 @@ header a {
 }
 
 h1 {
-  font-size: 66px ;
+  font-size: 66px;
   background-color: var(--primary);
   padding: 10px;
   border-radius: var(--border-radius);
